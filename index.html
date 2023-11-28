@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRATEGIX tienda de aplicaciones</title>
+    <style>
+        body {
+            font-family: 'Noto Sans Rounded', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            height: 100%;
+
+        }
+
+        aside {
+            background-color: #333;
+            color: #fff;
+            width: 80px;
+            padding-top: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+
+        aside a {
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 11px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        #logo img {
+            height: 70px;
+            width: 70px;
+            border-radius: 30%;
+            position: relative;
+            z-index: 80;
+        }
+
+        h1 {
+            margin: 0;
+            padding-left: 10px;
+            position: relative;
+
+        }
+
+        form {
+            margin-left: auto;
+        }
+
+        form>div {
+            display: flex;
+            background: #fff;
+            padding: 9px 22px 9px 26px;
+            border-radius: 30px;
+            border: 2px solid #cad3dc;
+            box-shadow: rgba(255, 255, 255, 0.5) -8px -8px 15px,
+                rgba(0, 0, 0, 0.1) 10px 10px 10px,
+                rgba(255, 255, 255, 0.5) -8px -8px 15px inset,
+                rgba(0, 0, 0, 0.1) 10px 10px 10px inset;
+            position: relative;
+            right: 30px;
+        }
+
+        form input {
+            border: none;
+            background: transparent;
+            font-weight: bold;
+            padding-left: 40px;
+            background-image: url(https://cdn.icon-icons.com/icons2/561/PNG/512/active-search-symbol_icon-icons.com_53795.png);
+            background-size: 16px;
+            background-repeat: no-repeat;
+            width: 0px;
+            transition: all 1s;
+        }
+
+        form input:focus {
+            outline: none;
+            width: 300px;
+        }
+
+        main {
+            margin-left: 80px;
+            margin-bottom: 40px;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+            position: fixed;
+
+        }
+
+        .slider-frame {
+            width: 700px;
+            height: auto;
+            margin: 50px auto 0;
+            overflow: hidden;
+        }
+
+        .slider-frame ul {
+            display: flex;
+            padding: 0;
+            width: 400%;
+
+            animation: slide 20s infinite alternate ease-in-out;
+        }
+
+        .slider-frame li {
+            width: 100%;
+            list-style: none;
+        }
+
+        .slider-frame img {
+            width: 100%;
+        }
+
+        @keyframes slide {
+            0% {
+                margin-left: 0;
+            }
+
+            20% {
+                margin-left: 0;
+            }
+
+            25% {
+                margin-left: -100%;
+            }
+
+            45% {
+                margin-left: -100%;
+            }
+
+            50% {
+                margin-left: -200%;
+            }
+
+            70% {
+                margin-left: -200%;
+            }
+
+            75% {
+                margin-left: -300%;
+            }
+
+            100% {
+                margin-left: -300%;
+            }
+        }
+
+
+
+        .cards {
+            perspective: 500px;
+            display: inline-block;
+
+        }
+
+        .card {
+            width: 200px;
+            height: 250px;
+            background: #16161d;
+            border: 2px solid #555555;
+            border-radius: 4px;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .card:hover {
+            transform: translateZ(10px) rotateX(20deg) rotateY(20deg);
+        }
+
+        .card_title {
+            color: #fff;
+            position: absolute;
+            top: 90%;
+            right: 15%;
+            transform: translateY(-50%);
+            transition: transform .5s;
+            font: 700 1.5rem monospace;
+            text-shadow: -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+
+        .card:hover .card_title {
+            transform: translateZ(50px);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <aside>
+        <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+            </svg>
+            <span>Inicio</span>
+        </a>
+        <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-gamepad-2" width="24"
+                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                    d="M12 5h3.5a5 5 0 0 1 0 10h-5.5l-4.015 4.227a2.3 2.3 0 0 1 -3.923 -2.035l1.634 -8.173a5 5 0 0 1 4.904 -4.019h3.4z" />
+                <path d="M14 15l4.07 4.284a2.3 2.3 0 0 0 3.925 -2.023l-1.6 -8.232" />
+                <path d="M8 9v2" />
+                <path d="M7 10h2" />
+                <path d="M14 10h2" />
+            </svg>
+            <span>Juegos</span>
+        </a>
+        <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-apps" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                <path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                <path d="M14 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                <path d="M14 7l6 0" />
+                <path d="M17 4l0 6" />
+            </svg>
+            <span>Aplicaciones</span>
+        </a>
+        <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-histogram" width="24"
+                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 3v18h18" />
+                <path d="M20 18v3" />
+                <path d="M16 16v5" />
+                <path d="M12 13v8" />
+                <path d="M8 16v5" />
+                <path d="M3 11c6 0 5 -5 9 -5s3 5 9 5" />
+            </svg>
+            <span>Diagramas</span>
+        </a>
+        <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-help" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                <path d="M12 17l0 .01" />
+                <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4" />
+            </svg>
+            <span>Politicas</span>
+        </a>
+    </aside>
+
+    <header>
+        <div id="logo">
+            <img src="https://ideogram.ai/api/images/direct/8AO79C4PQ8ecDqAFk0Jo-g.jpg" alt="Logo">
+        </div>
+        <h1>Strategix Store</h1>
+        <form autocomplete="off">
+            <div>
+                <input type="text" name="q" placeholder="Buscar juegos, aplicaciones y mucho más">
+            </div>
+        </form>
+    </header>
+
+    <main style="padding-top: 80px;">
+
+        <section>
+            <h2>Aplicaciones Destacadas</h2>
+            <p> tus juegos favoritos los encunetras aqui en Strategix </p>
+
+            <div class="slider-frame">
+                <ul>
+                    <li><img src="https://media.vandal.net/i/640x360/6-2023/202361010173321_1.jpg.webp" alt=""></li>
+                    <li><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1716740/capsule_616x353.jpg?t=1700075960"
+                            alt=""></li>
+                    <li><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/386940/capsule_616x353.jpg?t=1700593004"
+                            alt=""></li>
+                    <li><img src="https://cdn.akamai.steamstatic.com/steam/apps/648800/capsule_616x353.jpg?t=1693638925"
+                            alt=""></li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Últimas Novedades</h2>
+            <p>Descubre las aplicaciones más recientes que hemos añadido a nuestra tienda.</p>
+            <div class="cards">
+                <figure class="card">
+                    <figcaption class="card_title"> $59.999 COP </figcaption>
+                    <img src="https://cdn1.epicgames.com/offer/8ae7b3c0f490471b967ce26cc2f6e0e6/EGS_ItTakesTwo_Hazelight_S2_1200x1600-5c82de2d2e21a841dd06ec27e082777e_1200x1600-5c82de2d2e21a841dd06ec27e082777e"
+                        height="200" width="200" alt="">
+                </figure>
+            </div>
+            <div class="cards">
+                <figure class="card">
+                    <figcaption class="card_title"> $40.000 COP </figcaption>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXYSzNu8OTZREy76dsWcDy5Pze5AofNr2I2RIR6VxU0EK5RA7FCAiOtebcShUM5NKUGDA&usqp=CAU"
+                        height="200" width="200" alt="">
+                </figure>
+            </div>
+        </section>
+
+        <section>
+            <h2>Aplicaciones</h2>
+            <p>Explora nuestras aplicaciones más populares y mejor valoradas por los usuarios.</p>
+
+            <div class="cards">
+                <figure class="card">
+                    <figcaption class="card_title">$50.000 COP</figcaption>
+                    <img src="https://image.api.playstation.com/vulcan/img/cfn/11307uYG0CXzRuA9aryByTHYrQLFz-HVQ3VVl7aAysxK15HMpqjkAIcC_R5vdfZt52hAXQNHoYhSuoSq_46_MT_tDBcLu49I.png"
+                        height="200" alt="">
+                </figure>
+            </div>
+
+            <div class="cards">
+                <figure class="card">
+                    <figcaption class="card_title">$70.000 COP</figcaption>
+                    <img src="https://image.api.playstation.com/cdn/UP1004/CUSA00419_00/bTNSe7ok8eFVGeQByA5qSzBQoKAAY32R.png"
+                        height="200" alt="">
+                </figure>
+            </div>
+
+            <div class="cards">
+                <figure class="card">
+                    <figcaption class="card_title"> $60.000 COP </figcaption>
+                    <img src="https://m.media-amazon.com/images/I/71bN7mqVC+L._AC_UF1000,1000_QL80_.jpg" height="200"
+                        width="200" alt="">
+                </figure>
+            </div>
+
+        </section>
+
+        <section>
+    
+            <h2>Diagrama</h2>
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTmT_J4icILfb-0CJG-eIrga8sEduLPt5hLL3PD_pF1ivhKsf2dkfh3DEMTb3rXMY-6oOCtnyMunswcKQqhVJuEYjSDkS_8VrPg8tW4tyHGrl3ov77Usq30nN56_icXCh5RrX1DOM2W-ViQV93Cu1CFhTnKAkoi5rwsDlKlpLJSIEnj96EoYGX_-Rl6Tx2/w1385-h860/Captura%20de%20pantalla%202023-11-28%20073934.png"
+                height="auto" width="1200px" style="margin-top: 0; margin-bottom: 0;" alt="">
+        </section>
+
+            <section >
+                <div style="margin: 12%; padding: 0; margin-bottom: 0; margin-top: 0; display: flex; align-items: center; justify-content: space-between;">
+                    
+                    <div style="width: 45%;">
+                    <h2>Politicas de la empresa</h2>
+                    <p>STRATEGIX es una innovadora iniciativa que aspira a transformar el ecosistema de aplicaciones,
+                        proporcionando un espacio donde tanto desarrolladores como usuarios puedan experimentar una verdadera
+                        revolución tecnológica.</p>
+                    <h2>Nuestra Misión</h2>
+                    <p>Nuestra misión en STRATEGIX es simple pero ambiciosa: liberar el potencial creativo de los
+                        desarrolladores y ampliar el horizonte de opciones para los usuarios de aplicaciones.</p>
+                    <h2> Para Desarrolladores</h2>
+                    <p>Para los desarrolladores, STRATEGIX se presenta como un oasis de oportunidades. Aquí, pueden dar vida a
+                        sus ideas sin la carga financiera de las tarifas prohibitivas que a menudo limitan su creatividad en las
+                        tiendas de aplicaciones convencionales. Queremos ser el trampolín que catapulte la innovación
+                        permitiendo que las aplicaciones que no encuentran cabida en otros lugares tengan la oportunidad de
+                        brillar.</p>
+                    <h2> Para Usuarios</h2>
+                    <p>Para los usuarios, STRATEGIX es un portal de descubrimiento. No solo encontrarán aplicaciones novedosas y
+                        emocionantes que no se encuentran en las tiendas tradicionales, sino que también pueden hacerlo con
+                        confianza. Nuestra plataforma se compromete a garantizar que todas las aplicaciones sean seguras y
+                        confiables, brindando una experiencia sin riesgos.</p>
+        
+                    <h2> Nuestros Valores:</h2>
+                    <p>En STRATEGIX, valoramos la innovación, la diversidad y la seguridad. Creemos que el futuro de las
+                        aplicaciones,esto debe ser accesible, emocionante y confiable. Queremos que los usuarios y
+                        desarrolladores se unan en una aventura compartida, donde la creatividad y la tecnología se fusionen de
+                        manera audaz.</p>
+                    <h2> Únete a la Revolución</h2>
+                    <p>Te invitamos a unirte a la revolución de STRATEGIX, donde la diversión y la innovación se encuentran en
+                        un espacio de posibilidades infinitas. Descubre, crea y experimenta en un mundo donde la creatividad es
+                        libre y la exploración no conoce límites. STRATEGIX marca el inicio de una nueva era en el universo de
+                        las aplicaciones. ¡Únete a la revolución tecnológIca con STRATEGIX!</p>
+                    </div>
+
+                    <div style="width: 45%;">
+                        <img src="https://ideogram.ai/api/images/direct/8AO79C4PQ8ecDqAFk0Jo-g.jpg" height="auto" width="100%" alt="">
+                    </div>
+                    
+                </div>
+
+            </section>
+
+    </main>
+
+    <footer>
+        <p>&copy;  Tienda de Aplicaciones</p>
+    </footer>
+    
+</body>
+
+</html>
